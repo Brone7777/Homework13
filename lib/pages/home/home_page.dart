@@ -46,12 +46,13 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ClipRRect(
-                      borderRadius: BorderRadius.circular(50.0),
-                      child: Container(
-                        width: 80.0,
-                        height: 80.0,
-                        child: Image.asset('assets/images/profile.png'),
-                      )),
+                    borderRadius: BorderRadius.circular(50.0),
+                    child: Container(
+                      width: 80.0,
+                      height: 80.0,
+                      child: Image.asset('assets/images/profile.png'),
+                    ),
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
                     child: Text(
