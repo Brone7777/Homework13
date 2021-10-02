@@ -30,7 +30,17 @@ class _HomePageState extends State<HomePage> {
           children: [
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                gradient: LinearGradient(
+                  // ไล่เฉดจากมุมบนซ้ายไปมุมล่างขวาของ Container
+
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  // ไล่เฉดจากสีแดงไปสีน้ำเงิน
+                  colors: [
+                    Colors.lightBlue.shade50,
+                    Colors.blueAccent.shade100,
+                  ],
+                ),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
