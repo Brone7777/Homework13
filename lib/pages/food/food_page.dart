@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:foods/pages/food/food_list_page.dart';
+import 'food_order_page.dart';
 
 class FoodPage extends StatefulWidget {
   static const routeName = '/food';
@@ -63,32 +65,32 @@ class _FoodPageState extends State<FoodPage> {
   }
 }
 
-class FoodListPage extends StatelessWidget {
-  static const routeName = '/foodList';
-
-  const FoodListPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('เมนูอาหาร',
-          style: GoogleFonts.prompt(fontSize: 80.0, color: Colors.pink)),
-    );
-  }
-}
-
-class OrderPage extends StatelessWidget {
-  static const routeName = '/order';
-
-  const OrderPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'อาหารที่สั่ง',
-        style: GoogleFonts.prompt(fontSize: 80.0, color: Colors.pink),
-      ),
-    );
-  }
-}
+// class FoodListPage extends StatelessWidget {
+//   static const routeName = '/foodList';
+//
+//   const FoodListPage({Key? key}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Center(
+//       child: Text('เมนูอาหาร',
+//           style: GoogleFonts.prompt(fontSize: 80.0, color: Colors.pink)),
+//     );
+//   }
+// }
+//
+// class OrderPage extends StatelessWidget {
+//   static const routeName = '/order';
+//
+//   const OrderPage({Key? key}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Center(
+//       child: Text(
+//         'อาหารที่สั่ง',
+//         style: GoogleFonts.prompt(fontSize: 80.0, color: Colors.pink),
+//       ),
+//     );
+//   }
+// }
