@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:foods/pages/food/food_details_page.dart';
 import 'package:foods/pages/food/food_item.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class FoodListPage extends StatefulWidget {
   static const routeName = '/food_list';
@@ -86,29 +87,23 @@ class _FoodListPageState extends State<FoodListPage> {
                 print(item.toString());
                 Navigator.pushNamed(
                   context,
-                  FoodDetailsPage.routeName, //FoodDetails,
+                  FoodDetailsPage.routeName,
                   arguments: item,
                 );
               },
-              child: Row(
-                children: [
-                  Image.asset('assets/images/${item.images}',
-                      width: 76.0, height: 76.0, fit: BoxFit.cover),
-                  SizedBox(width: 8.0),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        item.name,
-                        style: Theme.of(context).textTheme.bodyText1,
-                      ),
-                      Text(
-                        item.price.toString() + " บาท",
-                        style: Theme.of(context).textTheme.bodyText2,
-                      ),
-                    ],
-                  ),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.all(9.0),
+                child: Row(
+                  children: [
+                    Image.asset('assets/images/${item.images}',
+                        width: 90.0, height: 90.0),
+                    SizedBox(width: 9.0),
+                    Text(
+                      item.name as String,
+                      style: GoogleFonts.kanit(fontSize: 25.0),
+                    ),
+                  ],
+                ),
               ),
             ),
           );
