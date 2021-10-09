@@ -92,18 +92,13 @@ class _FoodListPageState extends State<FoodListPage> {
               },
               child: Row(
                 children: [
-                  Image.asset(
-                      //'assets/images/${item["image"]}',
-                      'assets/images/${item.images}',
-                      width: 76.0,
-                      height: 76.0,
-                      fit: BoxFit.cover),
+                  Image.asset('assets/images/${item.images}',
+                      width: 76.0, height: 76.0, fit: BoxFit.cover),
                   SizedBox(width: 8.0),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        //item["name"] as String,
                         item.name,
                         style: Theme.of(context).textTheme.bodyText1,
                       ),
