@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foods/pages/home/home_page.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 class LoginPage extends StatefulWidget {
   static const routeName = '/login';
@@ -77,8 +79,8 @@ class _LoginPageState extends State<LoginPage> {
                         for (var i = input.length; i < 6; i++)
                           Container(
                             margin: EdgeInsets.all(4.0),
-                            width: 24.0,
-                            height: 24.0,
+                            width: 26.0,
+                            height: 26.0,
                             decoration: BoxDecoration(
                               color: Theme.of(context)
                                   .colorScheme
@@ -141,20 +143,41 @@ class _LoginPageState extends State<LoginPage> {
         }
 
         if (input.length == pin.length) {
-          if (input == pin) {
-            /*Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => const HomePage()),
-          );*/
-            Navigator.pushReplacementNamed(context, HomePage.routeName);
-          } else {
-            _showMaterialDialog('ERROR', 'Invalid PIN. Please try again.');
-          }
-
-          input = '';
+          _checkPINLogin();
         }
       },
     );
+  }
+
+  Future<void> _checkPINLogin() async {
+    var url = Uri.parse("https://cpsu-test-api.herokuapp.com/login");
+    var response = await http.post(url, body: {
+      // post, send data to API
+      'pin': input
+    });
+
+    if (response.statusCode == 200) {
+      Map<String, dynamic> jsonBody = json.decode(response.body);
+      String status = jsonBody['status'];
+      String? message = jsonBody['message'];
+      bool checkPIN = jsonBody['data'];
+      print(status);
+      print(message);
+      print(checkPIN);
+      setState(() {
+        if (checkPIN) {
+          /*Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const HomePage()),
+          );*/
+          Navigator.pushReplacementNamed(context, HomePage.routeName);
+        } else {
+          _showMaterialDialog('ERROR', 'Invalid PIN. Please try again.');
+        }
+
+        input = '';
+      });
+    }
   }
 
   void _showMaterialDialog(String title, String msg) {
@@ -196,8 +219,8 @@ class LoginButton extends StatelessWidget {
       customBorder: CircleBorder(),
       onTap: number == -2 ? null : onClick,
       child: Container(
-        width: 75.0,
-        height: 75.0,
+        width: 80.0,
+        height: 80.0,
         decoration: number == -2
             ? null
             : BoxDecoration(
@@ -217,7 +240,7 @@ class LoginButton extends StatelessWidget {
               : (number == -1
                   ? Icon(
                       Icons.backspace_outlined,
-                      size: 28.0,
+                      size: 29.5,
                     )
                   : SizedBox.shrink()),
         ),
