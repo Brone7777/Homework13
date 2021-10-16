@@ -51,12 +51,12 @@ class _FoodListPageState extends State<FoodListPage> {
       price: 50,
       images: 'ปูผัดผงกะหรี่.jpg',
     ),
-    // FoodItem(
-    //    id: 7,
-    //    name: "โค้ก ออริจินอล",
-    //    price: 15,
-    //    images: 'โค้ก ซีโร่ สูตรไม่มีน้ำตาล.jfif',
-    //  ),
+     FoodItem(
+        id: 7,
+        name: "โค้ก ออริจินอล",
+        price: 15,
+        images: 'โค้ก ซีโร่ สูตรไม่มีน้ำตาล.jfif',
+      ),
     FoodItem(
       id: 8,
       name: "สไปรท์",
